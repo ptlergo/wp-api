@@ -13,3 +13,13 @@ wpApp.controller('ListCtrl', ['$scope', 'Posts', function($scope, Posts){
     $scope.posts = res;
   });
 }]);
+
+wpApp.config(function($stateProvider, $urlRouterProvider){
+  $urlRouterProvider.otherwise('/');
+  $stateProvider
+    .state('list', {
+      url: '/',
+      controller: 'ListCtrl',
+      templateUrl: appInfo.template_directory + 'templates/list.html'
+    });
+});
